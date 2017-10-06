@@ -1,4 +1,4 @@
-package examples.factory;
+package examples.factory825;
 
 import java.util.HashMap;
 import java.util.Map;
