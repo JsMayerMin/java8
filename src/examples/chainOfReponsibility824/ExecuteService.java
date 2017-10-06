@@ -3,7 +3,7 @@ package examples.chainOfReponsibility824;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
-public class ProcessingService {
+public class ExecuteService {
 
     public void oldJavaStart() {
         //템플릿 패턴을 이요해서 ProcessingObject를 구현한후 각각의 Processor를 만든다음에
