@@ -8,7 +8,7 @@ public class ZoneDateTimeExample {
         ZoneId zoneId = ZoneId.of("Europe/Rome");
 
         LocalDate date = LocalDate.of(2017, 10, 9);
-        ZonedDateTime zdt1 = date.atStartOfDay()
+        ZonedDateTime zdt1 = date.atStartOfDay(zoneId);
     }
 
     public void useOffSetDateTime() {
