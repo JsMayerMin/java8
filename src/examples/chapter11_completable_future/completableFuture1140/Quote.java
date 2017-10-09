@@ -1,4 +1,4 @@
-package examples.completableFuture1140;
+package examples.chapter11_completable_future.completableFuture1140;
 
 public class Quote {
 

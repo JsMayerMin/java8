@@ -1,4 +1,4 @@
-package examples.factory825;
+package examples.chapter8_refactor_test_debug.factory825;
 
 public class ProductFactory {
 

@@ -1,4 +1,4 @@
-package examples.completableFuture1100;
+package examples.chapter11_completable_future.completableFuture1100;
 
 import java.util.Random;
 import java.util.concurrent.CompletableFuture;
