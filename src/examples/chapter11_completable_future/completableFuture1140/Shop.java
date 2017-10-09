@@ -1,6 +1,6 @@
-package examples.completableFuture1140;
+package examples.chapter11_completable_future.completableFuture1140;
 
-import examples.completableFuture1100.DelayUtil;
+import examples.chapter11_completable_future.completableFuture1100.DelayUtil;
 
 import java.util.Random;
 

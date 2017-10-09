@@ -1,4 +1,4 @@
-package examples.lambdaTesting830;
+package examples.chapter8_refactor_test_debug.lambdaTesting830;
 
 import org.junit.jupiter.api.Test;
 

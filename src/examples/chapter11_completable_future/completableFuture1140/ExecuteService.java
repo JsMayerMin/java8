@@ -1,4 +1,4 @@
-package examples.completableFuture1140;
+package examples.chapter11_completable_future.completableFuture1140;
 
 import java.util.Arrays;
 import java.util.List;

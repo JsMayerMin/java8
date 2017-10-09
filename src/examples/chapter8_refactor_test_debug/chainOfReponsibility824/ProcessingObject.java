@@ -1,4 +1,4 @@
-package examples.chainOfReponsibility824;
+package examples.chapter8_refactor_test_debug.chainOfReponsibility824;
 
 public abstract class ProcessingObject<T> {
 
