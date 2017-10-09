@@ -8,6 +8,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class ExecuteService {
 
@@ -64,6 +65,27 @@ public class ExecuteService {
     public static double getRate() {
         return random.nextDouble();
     }
+
+    //종료과정을 리팩토링해보자
+    //반환되는 결과를 즉시 확인하고 최종적으로 다 확인했으면 종료한다.
+
+    public void findResultASAP() {
+        //CompletableFuture는 Collection을 지원하지 않기 때문에 array로 변환하는 과정을 만든다.
+
+        CompletableFuture[] futures = findPricesStream("myPhone").map(f->f.thenAccept(System.out::println))
+                .toArray(size -> new CompletableFuture[size]);
+        CompletableFuture.allOf(futures).join();
+
+    }
+
+    public Stream<CompletableFuture<String>> findPricesStream(String product) {
+        return shops.stream()
+                .map(shop -> CompletableFuture.supplyAsync(() -> shop.getPrice(product), customExecutor))
+                .map(future -> future.thenApply(Quote::parse))
+                .map(future -> future.thenCompose(quote -> CompletableFuture.supplyAsync(() -> Discount.applyDiscount(quote), customExecutor)));
+    }
+
+
 
 
 }
