@@ -24,20 +24,36 @@
 드디어 자바 8에서는 지금까지의 날짜와 시간문제를 개선하는 api를 제공하기 시작했다. Joda-time같은 third-party의 많은 기능
 을 java.time 패키지에 추가했다.<br>
 
-LocalDate, LocalTime, Instant, Duration, Period 등 새로운 클래스 제공한다.<br>
+LocalDate, LocalTime, Instant, Duration, Period 등 새로운 클래스 제공한다.
+
+모든 클래스는 불변이다.
 
 #### 2. 사람이나 기계가 이해할 수 있는 날짜와 시간 표현 방법
-<p>
-LocalDate, LocalTime -> 둘다 모두 불변이며 LocalDate에는 어떠한 시간대 정보도 포함하지 않는다.<br>
-DateTimeFormatter -> DateFormat을 대체하는 클래스이다.<br>
-LocalDateTime -> LocalDate, LocalTime을 동시에 갖는 클래스이다.<br>
-</p>
+* LocalDate, LocalTime -> 둘다 모두 불변이며 LocalDate에는 어떠한 시간대 정보도 포함하지 않는다.
+* DateTimeFormatter -> DateFormat을 대체하는 클래스이다.
+* LocalDateTime -> LocalDate, LocalTime을 동시에 갖는 클래스이다.
 
 #### 3. 시간의 양 정의하기
-<p>
-
-</p>
+ * Instant : 기계적인 관점에서 시간을 양으로 표현한다. Unix Epoch time(1970년 1월 1일 0시 0분 0초 UTC)를 기준으로 
+ 특정 시점까지의 시간을 초로 표현하며, 나노초 단위의 정밀도를 제공한다.
+ * Duration : 두 시간 객체 사이의 지속시간을 만들 수 있다. 초와 나노초 단위로 제공하므로 LocalDateTime, Instant, LocalTime 클래스를 사용할 수 있다.
+ * Period : LocalDate를 사용할 수 있다. 
 
 #### 4. 날짜 조작, 포매팅, 파싱
+지금까지 살펴본 모든 클래스는 불변이지만 시간을 조정해야하는 요구사항이 발생한다. 
+with~,plus~,minus~ 함수는 모두 새로운 객체를 반환한다.
+
+TemporalAdjusters에 구현된 정적 메소들를 통해서 날짜와 관련된 다양한 작업을 할 수 있다.
+
+ex> 다음주 일요일, 마주하는 일요일, 이번달 마지막날, 다음달 첫째주 일요일 등등
+
 
 #### 5. 시간대와 캘린더 다루기
+ZoneId, ZoneOffset, ZonedDateTime, OffsetDateTime 등을 활용해서 해당 지역 국가의 시간을 컨트롤 할 수 있다.
+
+ISO-8601 캘린더 시스템이 표준이며, ThaiBuddhistDate, MinguoDate, JapaneseDate, HirahDate 4개의 캘린터 시스템을 추가로 제공한다.
+
+
+#### 요약
+
+
